@@ -1,0 +1,86 @@
+<!-- update.ejs, Balkesa Azimi-301296835  Date: Sunday, June 18, 2023-->
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href = "/css/update.css" rel = "stylesheet" type = "text/css" />
+
+
+<title>Portfolio | Balkesa</title>
+
+</head>
+<body oncontextmenu="return false">
+
+<header>
+        <a href="/" class="logo"><i class="fab fa-node-js"></i> Balkesa</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a class="index" href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contacts-list">Business Contacts</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/auth/login">Login</a></li>
+                <% if (typeof displayName == 'string' && displayName) { %>
+                    <li><a href="/logout"></i>Logout</a></li>
+                    <% } %>
+            </ul>
+        </nav>
+</header>
+
+<!-- Content for the Update page -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-13">
+            <h1><%= title %></h1>
+            <form class="form" method="POST">
+                <div class="form-group">
+                    <label for="nameTextField">Contact Name</label>
+                    <input type="text" class="form-control"
+                    id="nameTextField"
+                    placeholder="Enter contact name"
+                    name="name" 
+                    value="<%= contact.name %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="numberTextField">Contact Number</label>
+                    <input type="tel" class="form-control"
+                    id="numberTextField"
+                    placeholder="Enter the contact's number"
+                    name="number"
+                    value="<%= contact.number %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailTextField">Contact email</label>
+                    <input type="text" class="form-control"
+                    id="emailTextField"
+                    placeholder="Enter the contact's email"
+                    name="email"
+                    value="<%= contact.email %>"
+                    required>
+                </div>
+
+                <br>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-edit"></i> Submit</button>
+
+                <a href="/contacts-list" class="btn btn-warning">
+                    <i class="fas fa-undo"></i> Cancel</a>
+                
+                <a href="/contacts-list/delete/<%= contact._id %>" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Delete</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
